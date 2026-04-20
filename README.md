@@ -4,6 +4,10 @@ A local dashboard that reads the JSONL transcripts Claude Code writes to `~/.cla
 
 **Everything runs locally.** No data leaves your machine — no telemetry, no API calls for your data, no login.
 
+![Overview tab — totals and daily charts](docs/images/dashboard-overview-top.jpg)
+
+![Overview tab — per-project, per-model, top tools, recent sessions](docs/images/dashboard-overview-bottom.jpg)
+
 ## What this is useful for
 
 - Seeing which of your prompts are expensive (surprise: they usually involve large tool results).
@@ -11,16 +15,6 @@ A local dashboard that reads the JSONL transcripts Claude Code writes to `~/.cla
 - Spotting wasteful patterns — the same file read twenty times in a session, a tool call returning 80k tokens.
 - Understanding what a "cache hit" actually saves you.
 - If you're on Pro or Max, confirming you're getting your money's worth in API-equivalent dollars.
-
-## Screenshots
-
-Overview tab — totals, daily work, daily cache reads, and the tab bar (Overview · Prompts · Sessions · Projects · Skills · Tips · Settings):
-
-![Overview tab — totals and daily charts](docs/images/dashboard-overview-top.jpg)
-
-Scrolling down the Overview — tokens by project, token share by model, top tools by call count, recent sessions:
-
-![Overview tab — per-project, per-model, top tools, recent sessions](docs/images/dashboard-overview-bottom.jpg)
 
 ## Prerequisites
 

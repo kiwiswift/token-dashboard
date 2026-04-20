@@ -1590,7 +1590,17 @@ If any check fails: stop, fix the specific issue, and re-run this task from Step
 
 (This section is populated as Tasks 1, 3, 4, 5, 6 execute. Each of those tasks appends one entry here. Do not delete this section — it's the in-plan findings bundle the spec references.)
 
-<!-- Task 1 appends "### 1. Skills scanned roots" here -->
+### 1. Skills scanned roots — confirmed
+
+`token_dashboard/skills.py:19-23` scans exactly three roots:
+- `~/.claude/skills/`
+- `~/.claude/scheduled-tasks/`
+- `~/.claude/plugins/` (and its nested `marketplaces/…/plugins/<plugin>/skills/` tree)
+
+Skills whose `SKILL.md` lives outside those roots (project-local `.claude/skills/`, or subagent dispatches via `Task` tool with a skill-shaped `subagent_type`) are invoked correctly by Claude Code but have no entry in the catalog. The `/api/skills` route (`server.py:105-111`) still returns invocation counts for those skills — only `tokens_per_call` is null.
+
+**Impact:** documented as a known limitation; no code change this pass.
+
 <!-- Task 3 appends "### 3. Scanner completeness" here -->
 <!-- Task 4 appends "### 4. Pricing freshness" here -->
 <!-- Task 5 appends "### 5. SQL injection surface" here -->
